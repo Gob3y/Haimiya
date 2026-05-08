@@ -1,141 +1,254 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biodata Link</title>
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <title>Doffy - Personal Link Website</title>
+  <meta name="description" content="Website personal Doffy berisi biodata, sosial media, portfolio, dan kontak resmi dalam satu halaman." />
+  <meta name="keywords" content="Doffy, biodata, link bio, portfolio, Instagram, TikTok, YouTube, WhatsApp" />
+  <meta name="author" content="Doffy" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://domainkamu.com/" />  <meta property="og:title" content="Doffy - Personal Link Website" />
+  <meta property="og:description" content="Temukan semua link sosial media, portfolio, dan kontak Doffy dalam satu halaman." />
+  <meta property="og:image" content="https://domainkamu.com/profile.jpg" />
+  <meta property="og:url" content="https://domainkamu.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="id_ID" />  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Doffy - Personal Link Website" />
+  <meta name="twitter:description" content="Semua link penting Doffy dalam satu halaman." />
+  <meta name="twitter:image" content="https://domainkamu.com/profile.jpg" />  <link rel="icon" href="favicon.ico" type="image/x-icon" />  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Doffy",
+    "url": "https://domainkamu.com/",
+    "image": "https://domainkamu.com/profile.jpg",
+    "description": "Website personal berisi biodata, portfolio, sosial media, dan kontak.",
+    "sameAs": [
+      "https://instagram.com/username",
+      "https://tiktok.com/@username",
+      "https://youtube.com/@username"
+    ]
+  }
+  </script>  <style>
+    :root {
+      --bg-1: #070714;
+      --bg-2: #151535;
+      --glass: rgba(255, 255, 255, 0.09);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --text: #ffffff;
+      --muted: #c9c9d6;
+      --primary: #8b5cf6;
+      --secondary: #06b6d4;
+      --danger: #ec4899;
+      --radius: 28px;
     }
 
-    body{
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:linear-gradient(135deg,#667eea,#764ba2);
-      padding:20px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .card{
-      width:100%;
-      max-width:400px;
-      background:#fff;
-      border-radius:25px;
-      padding:30px;
-      text-align:center;
-      box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    html {
+      scroll-behavior: smooth;
     }
 
-    .profile-img{
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      object-fit:cover;
-      border:4px solid #667eea;
-      margin-bottom:15px;
+    body {
+      min-height: 100vh;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(6, 182, 212, 0.28), transparent 40%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      overflow-x: hidden;
     }
 
-    h1{
-      font-size:28px;
-      color:#333;
-      margin-bottom:5px;
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      filter: blur(20px);
+      opacity: 0.45;
+      z-index: -1;
+      animation: float 8s ease-in-out infinite;
     }
 
-    .job{
-      color:#666;
-      margin-bottom:15px;
+    body::before {
+      top: 8%;
+      left: 8%;
+      background: var(--primary);
     }
 
-    .bio{
-      font-size:14px;
-      color:#555;
-      line-height:1.6;
-      margin-bottom:25px;
+    body::after {
+      right: 8%;
+      bottom: 8%;
+      background: var(--secondary);
+      animation-delay: 2s;
     }
 
-    .links{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-24px) scale(1.06); }
     }
 
-    .links a{
-      text-decoration:none;
-      background:#667eea;
-      color:white;
-      padding:14px;
-      border-radius:12px;
-      font-weight:bold;
-      transition:0.3s;
+    main {
+      width: 100%;
+      max-width: 460px;
     }
 
-    .links a:hover{
-      background:#4f5fd1;
-      transform:translateY(-3px);
+    .card {
+      width: 100%;
+      padding: clamp(24px, 6vw, 38px);
+      border-radius: var(--radius);
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      text-align: center;
+      animation: showUp 0.8s ease both;
     }
 
-    .footer{
-      margin-top:20px;
-      font-size:12px;
-      color:#888;
+    @keyframes showUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-  </style>
-</head>
 
-<body>
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
 
-  <div class="card">
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 14px #22c55e;
+    }
 
-    <img 
-      src="https://via.placeholder.com/150" 
-      alt="Foto Profil"
-      class="profile-img"
-    >
+    .profile-wrap {
+      width: clamp(116px, 30vw, 148px);
+      height: clamp(116px, 30vw, 148px);
+      margin: 0 auto 18px;
+      padding: 4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--danger));
+    }
 
-    <h1>Nama Kamu</h1>
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(7, 7, 20, 0.95);
+    }
 
-    <p class="job">
-      Pelajar | Programmer | Content Creator
-    </p>
+    h1 {
+      font-size: clamp(2rem, 7vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -0.04em;
+    }
 
-    <p class="bio">
-      Halo! Selamat datang di website biodata saya.
-      Di sini kamu bisa menemukan semua link sosial media saya.
-    </p>
+    .gradient-text {
+      background: linear-gradient(135deg, #fff, #c4b5fd, #67e8f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-    <div class="links">
-      <a href="https://instagram.com/" target="_blank">
-        Instagram
-      </a>
+    .role {
+      color: var(--muted);
+      font-size: clamp(0.94rem, 3vw, 1.05rem);
+      margin-bottom: 18px;
+    }
 
-      <a href="https://tiktok.com/" target="_blank">
-        TikTok
-      </a>
+    .bio {
+      color: #e5e7eb;
+      font-size: clamp(0.92rem, 3vw, 1rem);
+      line-height: 1.75;
+      margin-bottom: 26px;
+    }
 
-      <a href="https://youtube.com/" target="_blank">
-        YouTube
-      </a>
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 26px;
+    }
 
-      <a href="https://wa.me/628123456789" target="_blank">
-        WhatsApp
-      </a>
+    .stat {
+      padding: 12px 8px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-      <a href="mailto:email@gmail.com">
-        Email
-      </a>
-    </div>
+    .stat strong {
+      display: block;
+      font-size: 1.05rem;
+    }
 
-    <div class="footer">
-      © 2026 Nama Kamu
-    </div>
+    .stat span {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
 
-  </div>
+    .links {
+      display: grid;
+      gap: 13px;
+    }
 
-</body>
-</html>
+    .links a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 56px;
+      padding: 15px 18px;
+      border-radius: 18px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+      transition: transform 0.25s ease, background 0.25s ease, border 0.25s ease;
+    }
+
+    .links a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.45), rgba(6, 182, 212, 0.35));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      z-index: 0;
+    }
+
+    .links a:hover {
+      transform: translateY(-3px) scale
